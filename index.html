@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>虎扑nba社区-虎扑nba社区论坛讨论_球队专区_比赛热帖_篮球资讯</title>
+<meta name="description" content="虎扑nba社区首页：汇集球队专区、比赛热帖、球员讨论与篮球资讯，提供热门话题浏览、专区检索与社区讨论入口，帮助球迷快速找到想看的内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8102e'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cpath d='M12 32h40M32 12v40M18 18c8 8 20 8 28 0M18 46c8-8 20-8 28 0' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --red:#c8102e;
+    --red-deep:#9d0b23;
+    --ink:#1b1d22;
+    --ink-2:#3d424c;
+    --muted:#6b7280;
+    --line:#e6e8ec;
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --gold:#e0a83c;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.75;
+    font-size:16px;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{max-width:100%;display:block;}
+  .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px;}
+
+  /* 页头 */
+  header.site{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:50;
+  }
+  .bar{
+    display:flex;align-items:center;gap:24px;
+    height:68px;
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;white-space:nowrap;}
+  .logo .mark{width:34px;height:34px;flex:none;}
+  .logo span.brand{color:var(--red);}
+  nav.main{margin-left:auto;display:flex;gap:22px;font-size:15px;color:var(--ink-2);}
+  nav.main a{padding:6px 0;border-bottom:2px solid transparent;transition:.2s;}
+  nav.main a:hover{color:var(--red);border-color:var(--red);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:15px;color:var(--ink-2);}
+
+  /* 首屏 */
+  .hero{
+    background:linear-gradient(140deg,#1b1d22 0%,#2a1418 55%,#3a0f18 100%);
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;
+    border-radius:50%;border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 0 0 60px rgba(255,255,255,.03),0 0 0 120px rgba(255,255,255,.02);
+    pointer-events:none;
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.35fr 1fr;gap:44px;
+    padding-top:56px;padding-bottom:56px;align-items:center;position:relative;z-index:2;
+  }
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;color:#f3b7c0;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 14px;margin-bottom:18px;}
+  h1{
+    font-size:clamp(28px,4.2vw,44px);
+    line-height:1.25;margin:0 0 16px;font-weight:800;letter-spacing:1px;
+  }
+  .hero p.lead{color:#d9dbe2;font-size:16px;margin:0 0 26px;max-width:32em;}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:10px;font-size:15px;font-weight:600;
+    transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--red);color:#fff;}
+  .btn-primary:hover{background:var(--red-deep);}
+  .btn-ghost{border-color:rgba(255,255,255,.35);color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);}
+  .hero-board{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:20px;backdrop-filter:blur(2px);
+  }
+  .hero-board h2{font-size:14px;margin:0 0 14px;color:#f3b7c0;letter-spacing:1px;font-weight:600;}
+  .hero-board ol{margin:0;padding:0;list-style:none;display:grid;gap:12px;}
+  .hero-board li{display:flex;gap:10px;font-size:14px;color:#e5e7eb;line-height:1.5;}
+  .hero-board .no{
+    flex:none;width:20px;height:20px;border-radius:6px;background:var(--red);
+    color:#fff;font-size:12px;display:grid;place-items:center;font-weight:700;margin-top:2px;
+  }
+
+  /* 通用区 */
+  section{padding:52px 0;}
+  .sec-head{display:flex;align-items:flex-end;gap:14px;margin-bottom:26px;flex-wrap:wrap;}
+  .sec-head h2{font-size:24px;margin:0;font-weight:800;letter-spacing:.5px;}
+  .sec-head .sub{color:var(--muted);font-size:14px;margin:0;padding-bottom:3px;}
+  .sec-head .bar-red{width:5px;height:24px;background:var(--red);border-radius:3px;}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:22px;transition:.2s;
+  }
+  .card:hover{border-color:#f0c2c9;box-shadow:0 10px 26px rgba(200,16,46,.07);transform:translateY(-2px);}
+  .card .ico{width:38px;height:38px;margin-bottom:14px;}
+  .card h3{margin:0 0 8px;font-size:17px;font-weight:700;}
+  .card p{margin:0;color:var(--ink-2);font-size:14.5px;line-height:1.7;}
+  .card .tagline{display:inline-block;margin-top:12px;font-size:13px;color:var(--red);font-weight:600;}
+
+  /* 热帖 */
+  .hot-layout{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start;}
+  .post-list{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .post{display:flex;gap:14px;padding:18px 20px;border-bottom:1px solid var(--line);transition:.15s;}
+  .post:last-child{border-bottom:none;}
+  .post:hover{background:#fdf5f6;}
+  .post .rank{
+    flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    font-size:13px;font-weight:700;background:#f1f2f5;color:var(--muted);margin-top:2px;
+  }
+  .post .rank.top{background:var(--red);color:#fff;}
+  .post .body{min-width:0;}
+  .post h4{margin:0 0 5px;font-size:15.5px;font-weight:600;line-height:1.5;}
+  .post .meta{font-size:12.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;}
+  .post .meta em{font-style:normal;color:var(--red);}
+
+  aside.side{display:grid;gap:18px;}
+  .panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .panel h3{margin:0 0 14px;font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;}
+  .panel h3::before{content:"";width:4px;height:14px;background:var(--red);border-radius:2px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13px;padding:5px 12px;border-radius:999px;background:#f4f5f7;color:var(--ink-2);
+    border:1px solid transparent;cursor:pointer;transition:.15s;
+  }
+  .chip:hover,.chip.active{background:#fdecee;color:var(--red);border-color:#f3c4cb;}
+  .search-box{display:flex;gap:8px;}
+  .search-box input{
+    flex:1;min-width:0;border:1px solid var(--line);border-radius:9px;padding:9px 12px;
+    font-size:14px;font-family:inherit;color:var(--ink);background:#fafbfc;outline:none;
+  }
+  .search-box input:focus{border-color:var(--red);background:#fff;}
+  .search-box button{
+    border:none;background:var(--red);color:#fff;border-radius:9px;padding:0 16px;
+    font-size:14px;font-family:inherit;cursor:pointer;font-weight:600;
+  }
+  .search-box button:hover{background:var(--red-deep);}
+  .hint{font-size:12.5px;color:var(--muted);margin:10px 0 0;}
+  .filter-result{font-size:13px;color:var(--ink-2);margin-top:10px;display:none;}
+  .filter-result.show{display:block;}
+
+  /* 专区 */
+  .zone-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .zone{
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;
+    display:flex;flex-direction:column;gap:6px;transition:.2s;
+  }
+  .zone:hover{border-color:#f0c2c9;background:#fffafa;}
+  .zone .zn{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+  .zone .zn i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block;}
+  .zone .zd{font-size:13px;color:var(--muted);line-height:1.6;}
+
+  /* 指南 */
+  .guide{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;
+    display:grid;grid-template-columns:1fr 1fr;gap:32px;
+  }
+  .guide h3{margin:0 0 12px;font-size:18px;}
+  .guide p{margin:0 0 14px;color:var(--ink-2);font-size:14.5px;}
+  .steps{display:grid;gap:14px;counter-reset:st;}
+  .step{display:flex;gap:12px;font-size:14.5px;color:var(--ink-2);line-height:1.65;}
+  .step::before{
+    counter-increment:st;content:counter(st);
+    flex:none;width:24px;height:24px;border-radius:7px;background:#fdecee;color:var(--red);
+    display:grid;place-items:center;font-weight:700;font-size:13px;margin-top:2px;
+  }
+
+  /* 页尾 */
+  footer.site{background:#141619;color:#9aa0aa;padding:40px 0 28px;margin-top:20px;}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;padding-bottom:22px;border-bottom:1px solid #24272d;}
+  .foot-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:17px;}
+  .foot-brand .mark{width:28px;height:28px;}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;}
+  .foot-links a:hover{color:#fff;}
+  .foot-bottom{padding-top:18px;font-size:12.5px;line-height:1.8;color:#7d838d;}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;gap:30px;padding-top:40px;padding-bottom:40px;}
+    .grid-3{grid-template-columns:1fr 1fr;}
+    .hot-layout{grid-template-columns:1fr;}
+    .zone-grid{grid-template-columns:1fr 1fr;}
+    .guide{grid-template-columns:1fr;padding:24px;}
+  }
+  @media (max-width:640px){
+    body{font-size:15.5px;}
+    .bar{height:auto;flex-wrap:wrap;padding:12px 0;gap:12px;}
+    nav.main{display:none;width:100%;flex-direction:column;gap:0;margin:0;border-top:1px solid var(--line);padding-top:8px;}
+    nav.main.open{display:flex;}
+    nav.main a{padding:10px 2px;border-bottom:1px solid var(--line);}
+    .nav-toggle{display:block;margin-left:auto;}
+    .grid-3{grid-template-columns:1fr;}
+    .zone-grid{grid-template-columns:1fr;}
+    section{padding:38px 0;}
+    .hero-board{padding:18px;}
+    .post{padding:16px 16px;gap:12px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a href="#top" class="logo" aria-label="虎扑nba社区 首页">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#c8102e"/>
+        <circle cx="32" cy="32" r="20" fill="none" stroke="#fff" stroke-width="3"/>
+        <path d="M12 32h40M32 12v40M18 18c8 8 20 8 28 0M18 46c8-8 20-8 28 0" stroke="#fff" stroke-width="2.4" fill="none"/>
+      </svg>
+      <span class="brand">虎扑nba社区</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">导航</button>
+    <nav class="main" id="mainNav" aria-label="主导航">
+      <a href="#hot">社区热帖</a>
+      <a href="#zones">球队专区</a>
+      <a href="#guide">新手指南</a>
+      <a href="#about">关于社区</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="kicker">JRS 篮球讨论区</span>
+        <h1>虎扑nba社区</h1>
+        <p class="lead">在虎扑nba社区，球迷围绕比赛复盘、球员表现与球队建队展开讨论。这里按球队与话题组织专区，把当天的热帖、赛后观点和长期争论放在同一处，方便你顺着话题读下去。</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#hot">进入社区热帖</a>
+          <a class="btn btn-ghost" href="#zones">浏览球队专区</a>
+        </div>
+      </div>
+      <div class="hero-board">
+        <h2>今日社区导读</h2>
+        <ol>
+          <li><span class="no">1</span><span>赛后复盘：关键回合的攻防选择为何引发分歧</span></li>
+          <li><span class="no">2</span><span>球员讨论：数据之外，轮换与角色定位更值得聊</span></li>
+          <li><span class="no">3</span><span>专区动态：新赛季阵容调整话题持续升温</span></li>
+          <li><span class="no">4</span><span>社区规则：发帖分区与标题规范说明已更新</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="hot">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="bar-red"></span>
+        <h2>社区热帖</h2>
+        <p class="sub">按讨论热度整理的当日话题，点击标题可查看详情</p>
+      </div>
+
+      <div class="hot-layout">
+        <div>
+          <div class="post-list" id="postList">
+            <a class="post" href="#hot" data-topic="赛后复盘">
+              <span class="rank top">1</span>
+              <div class="body">
+                <h4>最后一攻该由谁执行？社区对战术选择的两种看法</h4>
+                <div class="meta"><span>赛后复盘</span><span>·</span><span>讨论 <em>热度高</em></span><span>·</span><span>战术板</span></div>
+              </div>
+            </a>
+            <a class="post" href="#hot" data-topic="球员讨论">
+              <span class="rank top">2</span>
+              <div class="body">
+                <h4>替补席的使用方式：从出场时间看轮换的取舍</h4>
+                <div class="meta"><span>球员讨论</span><span>·</span><span>讨论 <em>热度高</em></span><span>·</span><span>数据流</span></div>
+              </div>
+            </a>
+            <a class="post" href="#hot" data-topic="球队专区">
+              <span class="rank">3</span>
+              <div class="body">
+                <h4>阵容名单调整后，主队专区对建队方向的争论</h4>
+                <div class="meta"><span>球队专区</span><span>·</span><span>讨论 <em>热度中</em></span><span>·</span><span>建队思路</span></div>
+              </div>
+            </a>
+            <a class="post" href="#hot" data-topic="篮球资讯">
+              <span class="rank">4</span>
+              <div class="body">
+                <h4>一周资讯汇总：交易流言与伤病报告的读法</h4>
+                <div class="meta"><span>篮球资讯</span><span>·</span><span>讨论 <em>热度中</em></span><span>·</span><span>资讯台</span></div>
+              </div>
+            </a>
+            <a class="post" href="#hot" data-topic="赛后复盘">
+              <span class="rank">5</span>
+              <div class="body">
+                <h4>防守端的换防沟通：一次漏人如何被放大</h4>
+                <div class="meta"><span>赛后复盘</span><span>·</span><span>讨论 <em>热度中</em></span><span>·</span><span>战术板</span></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <aside class="side">
+          <div class="panel">
+            <h3>话题检索</h3>
+            <form class="search-box" id="searchForm" role="search">
+              <input type="search" id="searchInput" placeholder="输入关键词，如 复盘 / 轮换" aria-label="检索社区话题">
+              <button type="submit">查找</button>
+            </form>
+            <p class="hint">支持从上方热帖标题中筛选匹配内容。</p>
+            <p class="filter-result" id="filterResult"></p>
+          </div>
+          <div class="panel">
+            <h3>常见标签</h3>
+            <div class="chips" id="chips">
+              <button class="chip active" data-tag="">全部</button>
+              <button class="chip" data-tag="赛后复盘">赛后复盘</button>
+              <button class="chip" data-tag="球员讨论">球员讨论</button>
+              <button class="chip" data-tag="球队专区">球队专区</button>
+              <button class="chip" data-tag="篮球资讯">篮球资讯</button>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>社区提醒</h3>
+            <p style="margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.75;">发帖请选择对应球队或话题专区，标题写清讨论对象；转载资讯请保留来源说明。虎扑nba社区鼓励基于比赛事实的讨论。</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="zones">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="bar-red"></span>
+        <h2>球队专区与话题分区</h2>
+        <p class="sub">按球队、战术与资讯分门别类，便于长期跟进</p>
+      </div>
+      <div class="zone-grid">
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>主队专区</span>
+          <span class="zd">围绕本队阵容、轮换与赛季目标展开的日常讨论。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>战术板</span>
+          <span class="zd">拆解挡拆、换防与空间利用，适合喜欢看细节的球迷。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>数据流</span>
+          <span class="zd">用出场时间、命中分布等数据支撑观点，避免空泛争论。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>资讯台</span>
+          <span class="zd">汇总交易、伤病与赛程信息，标注消息来源与时间。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>选秀与青年军</span>
+          <span class="zd">关注新秀表现与球队长期培养路线。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>历史回看</span>
+          <span class="zd">经典系列赛与老球员话题，适合慢慢翻旧帖。</span>
+        </a>
+        <a class="zone" href="#hot">
+          <span class="zn"><i></i>球迷生活</span>
+          <span class="zd">看球装备、观赛组织与线下活动交流。</span>
+        </a>
+        <a class="zone" href="#guide">
+          <span class="zn"><i></i>社区事务</span>
+          <span class="zd">版规说明、发帖建议与账号相关问题。</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="guide">
+        <div>
+          <h3>在虎扑nba社区怎么开始</h3>
+          <p>第一次来到虎扑nba社区，可以先从热帖读起，看看大家讨论的角度，再进入感兴趣的球队专区。社区的内容以球迷观点为主，事实信息通常会在正文里注明来源，阅读时留意区分。</p>
+          <p>如果你习惯先看结论，可以按标签筛选；如果你更关心长期话题，专区里的历史帖往往比热帖更有信息量。</p>
+          <p style="margin-bottom:0;">
+            <a class="btn btn-primary" href="#hot" style="padding:9px 18px;font-size:14px;">从热帖开始阅读</a>
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step">选择球队或话题专区，先浏览置顶说明，了解该区的讨论范围。</div>
+          <div class="step">用话题检索或标签筛选，快速定位你关心的比赛、球员或建队话题。</div>
+          <div class="step">发帖时写清讨论对象与依据，引用数据或赛后画面，让观点更容易被回应。</div>
+          <div class="step">遇到分歧时回到比赛事实，避免人身攻击，这也是虎扑nba社区长期维持讨论质量的基础。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="bar-red"></span>
+        <h2>关于这个社区</h2>
+        <p class="sub">内容定位与使用预期</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#c8102e" stroke-width="2.4"/><path d="M20 9v11l8 5" fill="none" stroke="#c8102e" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <h3>按比赛节奏组织</h3>
+          <p>赛前看阵容与对位，赛后看复盘与争议回合，虎扑nba社区的内容顺序贴近球迷真实的观赛节奏。</p>
+        </div>
+        <div class="card">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="8" width="28" height="20" rx="3" fill="none" stroke="#c8102e" stroke-width="2.4"/><path d="M13 34h14M20 28v6" stroke="#c8102e" stroke-width="2.4" stroke-linecap="round"/></svg>
+          <h3>观点与事实并置</h3>
+          <p>帖子里的判断建立在比赛画面和数据之上，读帖时可以顺着引用核对，形成自己的结论。</p>
+        </div>
+        <div class="card">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 12h24M8 20h24M8 28h16" stroke="#c8102e" stroke-width="2.6" stroke-linecap="round"/></svg>
+          <h3>长期可检索</h3>
+          <p>专区里的旧帖保留了当时的讨论语境，回看一个赛季的争论，比单条热帖更有参考价值。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#c8102e"/>
+          <circle cx="32" cy="32" r="20" fill="none" stroke="#fff" stroke-width="3"/>
+          <path d="M12 32h40M32 12v40M18 18c8 8 20 8 28 0M18 46c8-8 20-8 28 0" stroke="#fff" stroke-width="2.4" fill="none"/>
+        </svg>
+        虎扑nba社区
+      </div>
+      <nav class="foot-links" aria-label="页尾导航">
+        <a href="#hot">社区热帖</a>
+        <a href="#zones">球队专区</a>
+        <a href="#guide">新手指南</a>
+        <a href="#about">关于社区</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      虎扑nba社区是面向篮球球迷的讨论型首页，内容以比赛复盘、球员与球队话题为主。页面中的话题与专区说明用于展示社区结构，具体帖子内容以社区实际发布为准。
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var toggle=document.getElementById('navToggle');
+  var nav=document.getElementById('mainNav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}
+    });
+  }
+
+  var posts=Array.prototype.slice.call(document.querySelectorAll('#postList .post'));
+  var chips=Array.prototype.slice.call(document.querySelectorAll('#chips .chip'));
+  var input=document.getElementById('searchInput');
+  var form=document.getElementById('searchForm');
+  var result=document.getElementById('filterResult');
+  var activeTag='';
+
+  function applyFilter(){
+    var kw=(input&&input.value?input.value.trim():'');
+    var shown=0;
+    posts.forEach(function(p){
+      var topic=p.getAttribute('data-topic')||'';
+      var text=p.textContent||'';
+      var okTag=!activeTag||topic===activeTag;
+      var okKw=!kw||text.indexOf(kw)>-1;
+      var show=okTag&&okKw;
+      p.style.display=show?'':'none';
+      if(show)shown++;
+    });
+    if(result){
+      if(kw||activeTag){
+        result.textContent='当前筛选：'+(activeTag?activeTag:'全部话题')+(kw?' / 关键词“'+kw+'”':'')+'，共显示 '+shown+' 条热帖。';
+        result.classList.add('show');
+      }else{
+        result.classList.remove('show');
+      }
+    }
+  }
+
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('active');});
+      c.classList.add('active');
+      activeTag=c.getAttribute('data-tag')||'';
+      applyFilter();
+    });
+  });
+
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      applyFilter();
+    });
+  }
+  if(input){
+    input.addEventListener('input',applyFilter);
+  }
+})();
+</script>
+</body>
+</html>
