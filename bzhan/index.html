@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>b站-哔哩哔哩视频社区_番剧动画_弹幕互动_UP主创作</title>
+<meta name="description" content="b站是集视频观看、弹幕互动、番剧动画与UP主创作为一体的内容社区。本页整理b站的分区导航、内容看点、创作与观看入口，帮你快速找到想看的视频与关注的UP主。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fb7299'/%3E%3Cpath d='M18 24h28v18a4 4 0 0 1-4 4H22a4 4 0 0 1-4-4z' fill='%23fff'/%3E%3Cpath d='M22 18l6 6M42 18l-6 6' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M28 31v6l6-3z' fill='%23fb7299'/%3E%3C/svg%3E">
+<style>
+:root{
+  --pink:#fb7299;
+  --pink-deep:#e85d84;
+  --blue:#00a1d6;
+  --ink:#18191c;
+  --ink-2:#41464b;
+  --ink-3:#6d757a;
+  --line:#e5e9ef;
+  --bg:#f6f7f8;
+  --card:#ffffff;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+/* ---------- 页头 ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  display:flex;align-items:center;gap:26px;
+  height:64px;
+}
+.logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:var(--pink);display:grid;place-items:center}
+.logo-mark svg{width:20px;height:20px}
+.logo-text{font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--ink)}
+.nav{display:flex;gap:20px;font-size:14.5px;color:var(--ink-2);flex-wrap:wrap}
+.nav a{padding:4px 0;border-bottom:2px solid transparent;transition:.2s}
+.nav a:hover{color:var(--pink);border-bottom-color:var(--pink)}
+.header-cta{margin-left:auto;display:flex;gap:10px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:9px 18px;border-radius:10px;font-size:14px;font-weight:600;
+  transition:.2s;white-space:nowrap;border:1px solid transparent;
+}
+.btn-primary{background:var(--pink);color:#fff}
+.btn-primary:hover{background:var(--pink-deep)}
+.btn-ghost{background:#fff;color:var(--ink-2);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--pink);color:var(--pink)}
+.btn[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  background:
+    radial-gradient(900px 420px at 88% -10%,rgba(251,114,153,.20),transparent 62%),
+    radial-gradient(700px 380px at 4% 0%,rgba(0,161,214,.16),transparent 60%),
+    #fff;
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;
+  padding:62px 0 56px;align-items:center;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13px;font-weight:600;color:var(--pink-deep);
+  background:rgba(251,114,153,.12);
+  padding:5px 13px;border-radius:99px;margin-bottom:18px;
+}
+.hero-kicker i{width:6px;height:6px;border-radius:50%;background:var(--pink);display:block}
+h1{
+  font-size:clamp(34px,4.6vw,52px);
+  line-height:1.15;font-weight:900;letter-spacing:-.5px;
+  color:var(--ink);
+}
+.hero-sub{
+  margin-top:18px;font-size:16px;color:var(--ink-2);max-width:34em;
+}
+.hero-sub strong{color:var(--pink-deep);font-weight:700}
+.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hero-actions .btn{padding:12px 24px;font-size:15px;border-radius:11px}
+.hero-meta{
+  display:flex;gap:26px;margin-top:30px;flex-wrap:wrap;
+  font-size:13px;color:var(--ink-3);
+}
+.hero-meta b{display:block;font-size:19px;color:var(--ink);font-weight:800;line-height:1.3}
+.hero-visual{position:relative}
+.hero-visual svg{width:100%;height:auto;border-radius:18px;box-shadow:0 24px 48px -20px rgba(24,25,28,.28)}
+
+/* ---------- 通用区块 ---------- */
+section.block{padding:58px 0}
+section.block.alt{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+.sec-head h2{font-size:25px;font-weight:800;letter-spacing:-.2px}
+.sec-head p{font-size:14px;color:var(--ink-3);margin-top:6px;max-width:44em}
+.sec-tag{font-size:12.5px;font-weight:700;color:var(--pink-deep);letter-spacing:1px}
+
+/* 入口卡片 */
+.entry-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.entry{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;transition:.22s;display:flex;flex-direction:column;gap:8px;
+}
+.entry:hover{transform:translateY(-3px);box-shadow:0 14px 28px -16px rgba(24,25,28,.28);border-color:#f3c2d1}
+.entry-ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;margin-bottom:4px}
+.entry h3{font-size:16px;font-weight:700}
+.entry p{font-size:13.5px;color:var(--ink-3);line-height:1.7}
+.entry .more{font-size:13px;color:var(--pink-deep);font-weight:600;margin-top:auto;padding-top:6px}
+.ico-pink{background:rgba(251,114,153,.14)}
+.ico-blue{background:rgba(0,161,214,.13)}
+.ico-green{background:rgba(86,183,146,.15)}
+.ico-orange{background:rgba(245,158,66,.16)}
+
+/* 分区导航条 */
+.zone-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.zone-bar a{
+  font-size:13.5px;padding:7px 16px;border-radius:99px;
+  background:#fff;border:1px solid var(--line);color:var(--ink-2);transition:.2s;
+}
+.zone-bar a:hover{border-color:var(--pink);color:var(--pink-deep);background:rgba(251,114,153,.06)}
+
+/* 内容卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:.22s;display:flex;flex-direction:column;
+}
+.vcard:hover{transform:translateY(-3px);box-shadow:0 16px 32px -18px rgba(24,25,28,.3)}
+.vcard-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#fdf0f4,#eef6fa);position:relative;display:grid;place-items:center}
+.vcard-thumb svg{width:100%;height:100%}
+.vcard-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
+.vcard-body .tag{font-size:12px;font-weight:700;color:var(--blue)}
+.vcard-body h3{font-size:15.5px;font-weight:700;line-height:1.5}
+.vcard-body p{font-size:13.5px;color:var(--ink-3);line-height:1.7}
+.vcard-foot{display:flex;gap:14px;font-size:12.5px;color:#9aa1a8;padding-top:8px;border-top:1px dashed var(--line);margin-top:auto}
+
+/* 图文说明 */
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;align-items:center}
+.split h2{font-size:24px;font-weight:800;margin-bottom:14px;letter-spacing:-.2px}
+.split p{font-size:15px;color:var(--ink-2);margin-bottom:14px}
+.split ul{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:6px}
+.split li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-2);align-items:flex-start}
+.split li .dot{
+  width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:3px;
+  background:rgba(251,114,153,.15);display:grid;place-items:center;
+  font-size:11px;font-weight:800;color:var(--pink-deep);
+}
+.illus{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.illus svg{width:100%;height:auto}
+
+/* 数据条 */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 20px;text-align:center;
+}
+.stat b{display:block;font-size:26px;font-weight:900;color:var(--pink-deep);line-height:1.2}
+.stat span{font-size:13px;color:var(--ink-3);display:block;margin-top:6px}
+
+/* 问答 */
+.faq{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.qa{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.qa h3{font-size:15.5px;font-weight:700;margin-bottom:8px;color:var(--ink)}
+.qa h3::before{content:"Q";display:inline-block;color:var(--pink);font-weight:900;margin-right:7px}
+.qa p{font-size:14px;color:var(--ink-2);line-height:1.75}
+
+/* 下载条 */
+.dl{
+  margin-top:34px;border-radius:18px;padding:30px 34px;
+  background:linear-gradient(120deg,#fff5f8,#f0f8fc);
+  border:1px solid #f6dbe4;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+}
+.dl h3{font-size:18px;font-weight:800}
+.dl p{font-size:13.5px;color:var(--ink-3);margin-top:4px}
+.dl .btn{margin-left:auto}
+
+/* 页尾 */
+.site-footer{background:#1c1d21;color:#b9bfc6;padding:44px 0 30px;font-size:13.5px}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.footer-brand .logo-mark{background:var(--pink)}
+.footer-brand span{color:#fff;font-weight:800;font-size:17px}
+.footer-top p{line-height:1.8;color:#8d949c;max-width:26em}
+.fcol h4{color:#fff;font-size:14px;margin-bottom:12px;font-weight:700}
+.fcol a{display:block;color:#8d949c;margin-bottom:9px;transition:.2s}
+.fcol a:hover{color:var(--pink)}
+.footer-bottom{padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#767d85;font-size:12.5px}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:980px){
+  .hero-inner{grid-template-columns:1fr;gap:34px;padding:44px 0 40px}
+  .hero-visual{order:-1}
+  .entry-grid{grid-template-columns:repeat(2,1fr)}
+  .card-grid{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr;gap:28px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .header-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:12px}
+  .nav{order:3;width:100%;gap:14px;font-size:13.5px}
+  .header-cta{margin-left:0;width:100%}
+  .header-cta .btn{flex:1}
+  .entry-grid,.card-grid,.faq,.stats{grid-template-columns:1fr}
+  section.block{padding:42px 0}
+  .sec-head h2{font-size:22px}
+  .dl{padding:24px 22px}
+  .dl .btn{margin-left:0;width:100%}
+  .footer-top{grid-template-columns:1fr;gap:24px}
+  .hero-meta{gap:18px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="logo" href="#top" aria-label="b站首页">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="3" fill="#fff"/><path d="M7 3l3 3M17 3l-3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M10 10.5v4l4-2z" fill="#fb7299"/></svg>
+      </span>
+      <span class="logo-text">b站</span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <a href="#entries">内容入口</a>
+      <a href="#zones">分区导航</a>
+      <a href="#picks">本周看点</a>
+      <a href="#howto">怎么用b站</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href="#entries">浏览入口</a>
+      <a class="btn btn-primary" href="#picks">看本周看点</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="hero-kicker"><i></i>视频 · 弹幕 · 番剧 · 创作</span>
+        <h1>b站</h1>
+        <p class="hero-sub">
+          <strong>b站</strong>是一个以视频为核心的内容社区，把弹幕互动、番剧动画、知识科普与UP主创作放在同一个页面里。
+          无论你是想追一部新番、找一段学习视频，还是准备发布自己的第一支作品，都可以从下面的入口开始。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#picks">浏览本周看点</a>
+          <a class="btn btn-ghost" href="#zones">按分区找内容</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>30+</b>内容分区</div>
+          <div><b>弹幕</b>实时互动</div>
+          <div><b>UP主</b>创作投稿</div>
+          <div><b>番剧</b>正版放送</div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 520 360" xmlns="http://www.w3.org/2000/svg">
+          <rect width="520" height="360" rx="18" fill="#ffffff"/>
+          <rect x="0" y="0" width="520" height="46" rx="18" fill="#fdf1f5"/>
+          <rect x="0" y="28" width="520" height="18" fill="#fdf1f5"/>
+          <circle cx="24" cy="23" r="6" fill="#fb7299"/>
+          <circle cx="44" cy="23" r="6" fill="#f9c5d4"/>
+          <circle cx="64" cy="23" r="6" fill="#cfe9f3"/>
+          <rect x="26" y="72" width="300" height="168" rx="10" fill="#1c1d21"/>
+          <path d="M160 132v48l42-24z" fill="#fb7299"/>
+          <rect x="26" y="252" width="300" height="10" rx="5" fill="#eceff2"/>
+          <rect x="26" y="252" width="128" height="10" rx="5" fill="#fb7299"/>
+          <rect x="26" y="276" width="216" height="9" rx="4.5" fill="#eceff2"/>
+          <rect x="26" y="294" width="168" height="9" rx="4.5" fill="#eceff2"/>
+          <rect x="348" y="72" width="146" height="74" rx="10" fill="#eef7fb"/>
+          <rect x="360" y="86" width="60" height="8" rx="4" fill="#00a1d6" opacity=".55"/>
+          <rect x="360" y="102" width="110" height="7" rx="3.5" fill="#c9dde7"/>
+          <rect x="360" y="118" width="88" height="7" rx="3.5" fill="#c9dde7"/>
+          <rect x="348" y="158" width="146" height="74" rx="10" fill="#fdf1f5"/>
+          <rect x="360" y="172" width="52" height="8" rx="4" fill="#fb7299" opacity=".6"/>
+          <rect x="360" y="188" width="106" height="7" rx="3.5" fill="#f0d3dd"/>
+          <rect x="360" y="204" width="80" height="7" rx="3.5" fill="#f0d3dd"/>
+          <rect x="348" y="244" width="146" height="58" rx="10" fill="#f2f7f4"/>
+          <rect x="360" y="258" width="46" height="8" rx="4" fill="#56b792" opacity=".6"/>
+          <rect x="360" y="274" width="102" height="7" rx="3.5" fill="#cfe6dc"/>
+          <g fill="#fb7299" opacity=".85">
+            <rect x="120" y="92" width="66" height="18" rx="9"/>
+            <rect x="196" y="92" width="52" height="18" rx="9" opacity=".6"/>
+            <rect x="120" y="118" width="44" height="18" rx="9" opacity=".45"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- 内容入口 -->
+  <section class="block" id="entries">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">CONTENT ENTRY</span>
+          <h2>从这四类入口开始用b站</h2>
+          <p>访问b站的人，需求大多落在“看什么”“怎么找”“怎么互动”“怎么发布”四件事上。下面四个入口分别对应其中一件。</p>
+        </div>
+      </div>
+      <div class="entry-grid">
+        <a class="entry" href="#picks">
+          <span class="entry-ico ico-pink" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 7v10l8-5z" fill="#fb7299"/></svg>
+          </span>
+          <h3>看视频</h3>
+          <p>首页推荐、排行榜与关注动态，是b站日常观看的三条主线，适合没有明确目标的浏览。</p>
+          <span class="more">查看本周看点 →</span>
+        </a>
+        <a class="entry" href="#zones">
+          <span class="entry-ico ico-blue" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" fill="#00a1d6"/><rect x="13" y="3" width="8" height="8" rx="2" fill="#00a1d6" opacity=".5"/><rect x="3" y="13" width="8" height="8" rx="2" fill="#00a1d6" opacity=".5"/><rect x="13" y="13" width="8" height="8" rx="2" fill="#00a1d6"/></svg>
+          </span>
+          <h3>按分区找</h3>
+          <p>动画、番剧、知识、科技、生活、鬼畜等分区各有独立入口，适合带着明确兴趣检索。</p>
+          <span class="more">进入分区导航 →</span>
+        </a>
+        <a class="entry" href="#howto">
+          <span class="entry-ico ico-green" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H9l-5 4z" stroke="#56b792" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>弹幕互动</h3>
+          <p>弹幕是b站区别于普通视频站的表达方式，边看边发、按时间轴聚合，构成观看体验的一部分。</p>
+          <span class="more">了解弹幕用法 →</span>
+        </a>
+        <a class="entry" href="#howto">
+          <span class="entry-ico ico-orange" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#f59e42" stroke-width="1.8"/><path d="M4 21c0-4 3.6-6.5 8-6.5S20 17 20 21" stroke="#f59e42" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          <h3>做UP主</h3>
+          <p>从投稿、封面、标题到分区选择，b站给创作者提供了相对完整的一套发布流程。</p>
+          <span class="more">查看创作要点 →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分区导航 -->
+  <section class="block alt" id="zones">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">ZONES</span>
+          <h2>b站分区导航</h2>
+          <p>b站的内容被拆成若干分区，每个分区下还有细分频道。先认准分区，再决定看什么，比在推荐流里反复刷更省时间。</p>
+        </div>
+      </div>
+      <div class="zone-bar">
+        <a href="#picks">动画</a>
+        <a href="#picks">番剧</a>
+        <a href="#picks">知识</a>
+        <a href="#picks">科技</a>
+        <a href="#picks">生活</a>
+        <a href="#picks">美食</a>
+        <a href="#picks">鬼畜</a>
+        <a href="#picks">音乐</a>
+        <a href="#picks">舞蹈</a>
+        <a href="#picks">游戏</a>
+        <a href="#picks">影视</a>
+        <a href="#picks">纪录片</a>
+      </div>
+      <div class="split">
+        <div class="illus" aria-hidden="true">
+          <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg">
+            <rect width="480" height="340" rx="16" fill="#ffffff"/>
+            <rect x="28" y="28" width="196" height="112" rx="12" fill="#fdf1f5"/>
+            <rect x="44" y="46" width="54" height="9" rx="4.5" fill="#fb7299" opacity=".7"/>
+            <rect x="44" y="66" width="150" height="8" rx="4" fill="#f0d3dd"/>
+            <rect x="44" y="84" width="122" height="8" rx="4" fill="#f0d3dd"/>
+            <rect x="44" y="102" width="86" height="8" rx="4" fill="#f0d3dd"/>
+            <rect x="256" y="28" width="196" height="112" rx="12" fill="#eef7fb"/>
+            <rect x="272" y="46" width="54" height="9" rx="4.5" fill="#00a1d6" opacity=".7"/>
+            <rect x="272" y="66" width="150" height="8" rx="4" fill="#c9dde7"/>
+            <rect x="272" y="84" width="122" height="8" rx="4" fill="#c9dde7"/>
+            <rect x="272" y="102" width="86" height="8" rx="4" fill="#c9dde7"/>
+            <rect x="28" y="164" width="196" height="112" rx="12" fill="#f2f7f4"/>
+            <rect x="44" y="182" width="54" height="9" rx="4.5" fill="#56b792" opacity=".7"/>
+            <rect x="44" y="202" width="150" height="8" rx="4" fill="#cfe6dc"/>
+            <rect x="44" y="220" width="122" height="8" rx="4" fill="#cfe6dc"/>
+            <rect x="44" y="238" width="86" height="8" rx="4" fill="#cfe6dc"/>
+            <rect x="256" y="164" width="196" height="112" rx="12" fill="#fdf6ee"/>
+            <rect x="272" y="182" width="54" height="9" rx="4.5" fill="#f59e42" opacity=".8"/>
+            <rect x="272" y="202" width="150" height="8" rx="4" fill="#f4e2cc"/>
+            <rect x="272" y="220" width="122" height="8" rx="4" fill="#f4e2cc"/>
+            <rect x="272" y="238" width="86" height="8" rx="4" fill="#f4e2cc"/>
+            <rect x="28" y="298" width="424" height="10" rx="5" fill="#eef1f3"/>
+          </svg>
+        </div>
+        <div>
+          <h2>认准分区，内容才找得准</h2>
+          <p>同一个话题在b站可能分散在几个分区。比如一段科普内容，可能出现在知识区，也可能被归到科技区或生活区；一部动画作品，正片在番剧区，二创与解说则散落在动画区和鬼畜区。</p>
+          <p>所以更实用的做法是：先按兴趣定位分区，再看该分区下的排行榜与热门标签。这样得到的片单，比单纯依赖推荐流更贴近自己的口味。</p>
+          <ul>
+            <li><span class="dot">1</span>动画与番剧：适合追新番、补旧番和看二创剪辑。</li>
+            <li><span class="dot">2</span>知识与科技：以长视频为主，适合系统了解一个领域。</li>
+            <li><span class="dot">3</span>生活与美食：节奏轻、更新快，适合碎片时间观看。</li>
+            <li><span class="dot">4</span>鬼畜与音乐：二创浓度高，是b站社区氛围最集中的区域。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 本周看点 -->
+  <section class="block" id="picks">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">WEEKLY PICKS</span>
+          <h2>本周b站看点</h2>
+          <p>以下内容按分区归类，分别对应追番、学习、放松和二创四种观看需求，可作为打开b站后的第一站。</p>
+        </div>
+      </div>
+      <div class="card-grid">
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#fdf1f5"/><circle cx="160" cy="90" r="42" fill="#fff"/><path d="M148 72v36l30-18z" fill="#fb7299"/><rect x="120" y="146" width="80" height="8" rx="4" fill="#f0d3dd"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">番剧</span>
+            <h3>新番更新追踪</h3>
+            <p>每季新番开播后，番剧区会按播出日整理更新时间表，追番前先确认放送节奏，避免错过更新。</p>
+            <div class="vcard-foot"><span>追番清单</span><span>每周更新</span></div>
+          </div>
+        </article>
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#eef7fb"/><rect x="70" y="40" width="180" height="100" rx="8" fill="#fff"/><rect x="88" y="60" width="70" height="8" rx="4" fill="#00a1d6" opacity=".6"/><rect x="88" y="80" width="140" height="7" rx="3.5" fill="#c9dde7"/><rect x="88" y="96" width="112" height="7" rx="3.5" fill="#c9dde7"/><rect x="88" y="112" width="88" height="7" rx="3.5" fill="#c9dde7"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">知识</span>
+            <h3>一节课看懂一个概念</h3>
+            <p>知识区的中长视频常把一个概念拆成“是什么、为什么、怎么用”三段，适合当作入门材料。</p>
+            <div class="vcard-foot"><span>知识区</span><span>中长视频</span></div>
+          </div>
+        </article>
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#f2f7f4"/><circle cx="110" cy="80" r="26" fill="#fff"/><rect x="150" y="60" width="100" height="8" rx="4" fill="#cfe6dc"/><rect x="150" y="78" width="76" height="8" rx="4" fill="#cfe6dc"/><rect x="150" y="96" width="88" height="8" rx="4" fill="#cfe6dc"/><rect x="60" y="136" width="200" height="9" rx="4.5" fill="#e2efe9"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">生活</span>
+            <h3>轻量日常，碎片时间友好</h3>
+            <p>生活与美食类视频单集通常不长，适合通勤或休息时看，也是b站更新最稳定的分区之一。</p>
+            <div class="vcard-foot"><span>生活区</span><span>短视频为主</span></div>
+          </div>
+        </article>
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#fdf6ee"/><rect x="80" y="52" width="160" height="18" rx="9" fill="#f59e42" opacity=".35"/><rect x="100" y="82" width="120" height="18" rx="9" fill="#f59e42" opacity=".25"/><rect x="90" y="112" width="140" height="18" rx="9" fill="#f59e42" opacity=".18"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">鬼畜</span>
+            <h3>二创与梗文化的集中地</h3>
+            <p>鬼畜区的内容依赖素材剪辑与节奏处理，是观察b站社区语言如何形成的一个窗口。</p>
+            <div class="vcard-foot"><span>鬼畜区</span><span>二创内容</span></div>
+          </div>
+        </article>
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#f5f2fb"/><rect x="86" y="48" width="148" height="86" rx="8" fill="#fff"/><path d="M140 74v34l26-17z" fill="#8b6fc9"/><rect x="110" y="146" width="100" height="8" rx="4" fill="#ddd4f0"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">影视</span>
+            <h3>影视解说与拉片</h3>
+            <p>影视区的解说类内容常附带时间轴标注，配合弹幕里的补充讨论，观看时能获得额外信息。</p>
+            <div class="vcard-foot"><span>影视区</span><span>解说拉片</span></div>
+          </div>
+        </article>
+        <article class="vcard">
+          <div class="vcard-thumb" aria-hidden="true">
+            <svg viewBox="0 0 320 180"><rect width="320" height="180" fill="#fdf1f5"/><rect x="60" y="120" width="30" height="30" rx="6" fill="#fb7299" opacity=".7"/><rect x="100" y="94" width="30" height="56" rx="6" fill="#fb7299" opacity=".55"/><rect x="140" y="68" width="30" height="82" rx="6" fill="#fb7299" opacity=".4"/><rect x="180" y="100" width="30" height="50" rx="6" fill="#fb7299" opacity=".55"/><rect x="220" y="80" width="30" height="70" rx="6" fill="#fb7299" opacity=".7"/></svg>
+          </div>
+          <div class="vcard-body">
+            <span class="tag">音乐</span>
+            <h3>翻唱与原创音乐</h3>
+            <p>音乐区既有翻唱作品，也有原创曲目和演奏实录，常与动画、游戏区的二创形成联动。</p>
+            <div class="vcard-foot"><span>音乐区</span><span>翻唱原创</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="dl">
+        <div>
+          <h3>b站内容速查表</h3>
+          <p>把分区、观看入口与创作要点整理成一页，方便离线查阅。</p>
+        </div>
+        <a class="btn btn-primary" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">下载</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用方式 -->
+  <section class="block alt" id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">HOW IT WORKS</span>
+          <h2>怎么用b站：观看、互动与创作</h2>
+          <p>围绕b站的使用，可以拆成三个动作：找到内容、参与互动、自己发布。三者的门槛依次提高。</p>
+        </div>
+      </div>
+      <div class="split">
+        <div>
+          <h2>从观看走到发布</h2>
+          <p>观看层面，b站提供了推荐流、排行榜、关注动态和分区浏览几种路径。目标明确时用分区，目标模糊时用推荐，长期追更则依赖关注列表。</p>
+          <p>互动层面，弹幕是b站最有辨识度的功能。它把其他观众的即时反应按视频时间轴排列，让单独观看也带有一定的共同在场感。评论、投币、收藏和转发则构成了视频之外的第二层反馈。</p>
+          <p>创作层面，UP主上传视频时需要填写标题、封面、分区和标签。分区与标签决定内容会被推荐给谁，因此是投稿时最值得认真处理的两项信息。</p>
+          <ul>
+            <li><span class="dot">看</span>首页推荐用于发现，排行榜用于补课，分区用于定向检索。</li>
+            <li><span class="dot">聊</span>弹幕随视频时间走，评论适合展开较长讨论。</li>
+            <li><span class="dot">发</span>投稿前确认分区与标签，封面与标题直接影响点击。</li>
+          </ul>
+        </div>
+        <div class="illus" aria-hidden="true">
+          <svg viewBox="0 0 480 380" xmlns="http://www.w3.org/2000/svg">
+            <rect width="480" height="380" rx="16" fill="#ffffff"/>
+            <rect x="30" y="30" width="420" height="60" rx="12" fill="#fdf1f5"/>
+            <circle cx="62" cy="60" r="14" fill="#fb7299" opacity=".8"/>
+            <rect x="88" y="48" width="120" height="9" rx="4.5" fill="#f0d3dd"/>
+            <rect x="88" y="66" width="86" height="8" rx="4" fill="#f0d3dd"/>
+            <rect x="30" y="106" width="420" height="60" rx="12" fill="#eef7fb"/>
+            <circle cx="62" cy="136" r="14" fill="#00a1d6" opacity=".75"/>
+            <rect x="88" y="124" width="140" height="9" rx="4.5" fill="#c9dde7"/>
+            <rect x="88" y="142" width="100" height="8" rx="4" fill="#c9dde7"/>
+            <rect x="30" y="182" width="420" height="60" rx="12" fill="#f2f7f4"/>
+            <circle cx="62" cy="212" r="14" fill="#56b792" opacity=".8"/>
+            <rect x="88" y="200" width="128" height="9" rx="4.5" fill="#cfe6dc"/>
+            <rect x="88" y="218" width="92" height="8" rx="4" fill="#cfe6dc"/>
+            <rect x="30" y="266" width="420" height="84" rx="12" fill="#fafbfc" stroke="#e5e9ef"/>
+            <rect x="50" y="286" width="60" height="44" rx="8" fill="#eef1f3"/>
+            <rect x="124" y="290" width="180" height="9" rx="4.5" fill="#e2e6ea"/>
+            <rect x="124" y="308" width="140" height="8" rx="4" fill="#eceff2"/>
+            <rect x="124" y="324" width="100" height="8" rx="4" fill="#eceff2"/>
+            <rect x="330" y="294" width="100" height="28" rx="8" fill="#fb7299" opacity=".85"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数据与问答 -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="sec-tag">FAQ</span>
+          <h2>关于b站的常见问题</h2>
+          <p>以下问题来自新用户最常见的几处疑惑，回答只涉及页面结构与使用方式，不涉及账号与付费细节。</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>30+</b><span>内容分区</span></div>
+        <div class="stat"><b>4类</b><span>主要观看入口</span></div>
+        <div class="stat"><b>弹幕</b><span>核心互动方式</span></div>
+        <div class="stat"><b>投稿</b><span>UP主创作路径</span></div>
+      </div>
+      <div class="faq" style="margin-top:22px">
+        <div class="qa">
+          <h3>b站和普通视频网站有什么不同？</h3>
+          <p>主要差别在弹幕和社区氛围。弹幕把观众的即时反应按时间轴铺在画面上，形成一种“一起看”的体验；同时b站的内容很大一部分来自UP主投稿，二创与原创并存。</p>
+        </div>
+        <div class="qa">
+          <h3>第一次打开b站，应该先看哪里？</h3>
+          <p>如果目标不明确，可以先进首页推荐或排行榜；如果已经有想看的类型，直接去对应分区更高效。追番需求则从番剧区的时间表入手。</p>
+        </div>
+        <div class="qa">
+          <h3>弹幕会影响看视频吗？</h3>
+          <p>弹幕可以按需开关和调整显示密度。第一次观看剧情类内容时，先关闭弹幕看完正片，再打开弹幕看一遍，是不少用户采用的顺序。</p>
+        </div>
+        <div class="qa">
+          <h3>想投稿，需要准备什么？</h3>
+          <p>至少需要一段视频文件、一个封面、一个标题，以及明确的分区和标签。分区决定内容进入哪个内容池，标签影响被检索和被推荐的机会。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="3" y="6" width="18" height="13" rx="3" fill="#fff"/><path d="M7 3l3 3M17 3l-3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M10 10.5v4l4-2z" fill="#fb7299"/></svg>
+          </span>
+          <span>b站</span>
+        </div>
+        <p>b站是一个以视频为核心的内容社区，涵盖番剧动画、知识科技、生活美食与UP主二创。本页为b站主题导航首页，用于整理分区入口与观看、创作路径。</p>
+      </div>
+      <div class="fcol">
+        <h4>内容入口</h4>
+        <a href="#entries">看视频</a>
+        <a href="#zones">按分区找</a>
+        <a href="#howto">弹幕互动</a>
+        <a href="#howto">做UP主</a>
+      </div>
+      <div class="fcol">
+        <h4>热门分区</h4>
+        <a href="#picks">番剧</a>
+        <a href="#picks">知识</a>
+        <a href="#picks">生活</a>
+        <a href="#picks">鬼畜</a>
+      </div>
+      <div class="fcol">
+        <h4>帮助</h4>
+        <a href="#faq">常见问题</a>
+        <a href="#picks">本周看点</a>
+        <a href="#top">回到顶部</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 b站主题首页 · 内容整理页</span>
+      <span>本页信息用于介绍b站的分区与使用方式</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+            </html>
